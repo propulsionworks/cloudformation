@@ -1,0 +1,72 @@
+{
+  "name": "@propulsionworks/cloudformation",
+  "version": "0.0.1",
+  "author": {
+    "name": "Gordon Leigh"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/propulsionworks/cloudformation.git"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "exports": {
+    ".": {
+      "types": "./out/exports/main.d.ts",
+      "default": "./out/exports/main.js"
+    }
+  },
+  "scripts": {
+    "build": "npm run clean && npm run compile && npm run lint",
+    "check": "tsc -p tsconfig.json",
+    "clean": "rimraf -g out/ '**/*.tsbuildinfo'",
+    "compile": "tsc -p tsconfig.build.json",
+    "lint": "eslint",
+    "release": "release-it -VV"
+  },
+  "devDependencies": {
+    "@propulsionworks/eslint-config": "^0.4.1",
+    "@release-it/conventional-changelog": "^10.0.1",
+    "eslint": "^9.26.0",
+    "prettier": "^3.5.3",
+    "release-it": "^19.0.2",
+    "rimraf": "^6.0.1",
+    "typescript": "^5.8.3"
+  },
+  "files": [
+    "exports/",
+    "lib/",
+    "out/"
+  ],
+  "release-it": {
+    "$schema": "https://unpkg.com/release-it/schema/release-it.json",
+    "git": {
+      "requireCommits": true,
+      "requireBranch": "main"
+    },
+    "github": {
+      "release": true
+    },
+    "hooks": {
+      "commitMessage": "Chore: release v${version}"
+    },
+    "npm": {
+      "publish": true
+    },
+    "plugins": {
+      "@release-it/conventional-changelog": {
+        "preset": {
+          "name": "eslint"
+        },
+        "header": "# Changelog",
+        "infile": "CHANGELOG.md",
+        "strictSemVer": true
+      }
+    }
+  }
+}

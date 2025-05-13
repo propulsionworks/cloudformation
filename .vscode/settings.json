@@ -1,0 +1,15 @@
+{
+  "[typescript][javascript]": {
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "explicit"
+    }
+  },
+  "code-coverage-lcov.path.searchPath": "coverage/lcov.info",
+  "nodejs-testing.extensions": [
+    {
+      "extensions": ["ts"],
+      "parameters": []
+    }
+  ],
+  "typescript.tsdk": "node_modules/typescript/lib"
+}

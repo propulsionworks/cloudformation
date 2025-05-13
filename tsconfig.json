@@ -1,0 +1,48 @@
+{
+  // https://www.typescriptlang.org/tsconfig/
+  "compilerOptions": {
+    // type checking
+    "exactOptionalPropertyTypes": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noUncheckedIndexedAccess": true,
+    "noUnusedLocals": true,
+    "strict": true,
+
+    // modules
+    "module": "Node16",
+    "moduleResolution": "node16",
+    "noUncheckedSideEffectImports": true,
+    "rewriteRelativeImportExtensions": true,
+    "rootDir": "./",
+
+    // emit
+    "declaration": true,
+    "declarationMap": true,
+    "importHelpers": false,
+    "noEmit": true,
+    "outDir": "out/",
+    "sourceMap": true,
+
+    // interop constraints
+    "allowSyntheticDefaultImports": true,
+    "erasableSyntaxOnly": true,
+    //"isolatedDeclarations": true,
+    "verbatimModuleSyntax": true,
+
+    // language and environment
+    "target": "ESNext",
+
+    // projects
+    "composite": false,
+
+    // output formatting
+    "noErrorTruncation": true,
+
+    // completeness
+    "skipLibCheck": true
+  },
+  "include": ["./"],
+  "exclude": ["out/", "node_modules/"]
+}
