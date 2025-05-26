@@ -2,7 +2,12 @@ import propulsionworks, { config } from "@propulsionworks/eslint-config";
 
 export default config(
   {
-    ignores: ["node_modules/", "out/", "eslint.config.js"],
+    ignores: [
+      "node_modules/",
+      "out/",
+      "eslint.config.js",
+      "exports/resources.generated/",
+    ],
   },
   {
     files: ["**/*.js", "**/*.ts"],
@@ -21,9 +26,15 @@ export default config(
     },
   },
   {
-    files: ["tools/*.ts", "service/main.ts"],
+    files: ["build/*.ts"],
     rules: {
       "n/hashbang": "off",
+    },
+  },
+  {
+    files: ["build/**/*.ts", "build-lib/**/*.ts"],
+    rules: {
+      "n/no-extraneous-import": "off", // allow dev deps for build scripts
     },
   },
   {
@@ -48,5 +59,5 @@ export default config(
       "n/no-unsupported-features/node-builtins": "off", // so we can use node:test
       "unicorn/no-abusive-eslint-disable": "off",
     },
-  }
+  },
 );

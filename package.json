@@ -19,6 +19,9 @@
     ".": {
       "types": "./out/exports/main.d.ts",
       "default": "./out/exports/main.js"
+    },
+    "./resources/*": {
+      "types": "./out/exports/resources.generated/*.d.ts"
     }
   },
   "scripts": {
@@ -26,12 +29,15 @@
     "check": "tsc -p tsconfig.json",
     "clean": "rimraf -g out/ '**/*.tsbuildinfo'",
     "compile": "tsc -p tsconfig.build.json",
+    "generate": "node ./build/generate.ts",
     "lint": "eslint",
     "release": "release-it -VV"
   },
   "devDependencies": {
+    "@propulsionworks/cfn-resource-schemas": "^0.1.33",
     "@propulsionworks/eslint-config": "^0.4.1",
     "@release-it/conventional-changelog": "^10.0.1",
+    "@types/node": "^22.15.19",
     "eslint": "^9.26.0",
     "prettier": "^3.5.3",
     "release-it": "^19.0.2",
@@ -40,8 +46,11 @@
   },
   "files": [
     "exports/",
+    "!exports/resources.generated/",
     "lib/",
-    "out/"
+    "out/",
+    "!out/exports/resources.generated/*.js",
+    "!out/exports/resources.generated/*.map"
   ],
   "release-it": {
     "$schema": "https://unpkg.com/release-it/schema/release-it.json",
@@ -64,8 +73,7 @@
           "name": "eslint"
         },
         "header": "# Changelog",
-        "infile": "CHANGELOG.md",
-        "strictSemVer": true
+        "infile": "CHANGELOG.md"
       }
     }
   }
