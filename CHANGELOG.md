@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.1](https://github.com/propulsionworks/cloudformation/compare/0.1.0...0.1.1) (2025-05-26)
+
+
+### Fix
+
+* include documentation URL in generated comments ([dff4c4a](https://github.com/propulsionworks/cloudformation/commit/dff4c4a2336aee21358a0cef4d4f86b6f217fa25))
+
 # [0.1.0](https://github.com/propulsionworks/cloudformation/compare/0.0.2...0.1.0) (2025-05-26)
 
 
