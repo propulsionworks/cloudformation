@@ -100,11 +100,14 @@ export async function main(argv: string[]): Promise<number> {
 
     // output the full resource type
     statements.push(
-      ts.factory.createTypeAliasDeclaration(
-        [ts.factory.createToken(ts.SyntaxKind.ExportKeyword)],
-        mangledTypeName,
-        undefined,
-        resourceType,
+      code.withDocumentation(
+        ts.factory.createTypeAliasDeclaration(
+          [ts.factory.createToken(ts.SyntaxKind.ExportKeyword)],
+          mangledTypeName,
+          undefined,
+          resourceType,
+        ),
+        code.makeDefinitionDocumentation(resource.properties),
       ),
     );
 

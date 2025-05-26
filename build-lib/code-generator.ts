@@ -401,8 +401,8 @@ export class CodeGenerator {
         lines.push(`@example ${JSON.stringify(docs.examples)}`);
       }
     }
-    if (docs.wellKnownType === "iam-policy") {
-      lines.push("@policy");
+    if (docs.documentationUrl !== undefined) {
+      lines.push(`@see {@link ${docs.documentationUrl}}`);
     }
     return lines;
   }
