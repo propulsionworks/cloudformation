@@ -20,6 +20,9 @@ jobs:
       - name: NPM install
         run: npm ci
 
+      - name: Generate resource types
+        run: npm run generate
+
       - name: TypeScript
         run: npm run check
 

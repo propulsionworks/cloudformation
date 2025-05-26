@@ -48,7 +48,7 @@ jobs:
 
       - name: Generate resource types
         if: ${{ steps.commit.outcome == 'success' }}
-        run: npm generate
+        run: npm run generate
 
       - name: Build
         if: ${{ steps.commit.outcome == 'success' }}
