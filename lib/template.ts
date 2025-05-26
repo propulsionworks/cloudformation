@@ -5,6 +5,7 @@ import type {
   Ref,
   RuleFunction,
   ValueFn,
+  WithIntrinsics,
 } from "./intrinsics.ts";
 import type { ParameterType } from "./parameters.ts";
 
@@ -13,7 +14,9 @@ import type { ParameterType } from "./parameters.ts";
  *
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html}
  */
-export type Template<ResourceType = ResourceDefinition> = {
+export type Template<
+  ResourceType extends ResourceDefinition = ResourceDefinition,
+> = {
   /**
    * The AWSTemplateFormatVersion section (optional) identifies the capabilities
    * of the template. The latest template format version is 2010-09-09 and is
@@ -144,17 +147,18 @@ export type TemplateSectionType<Section extends TemplateSection> = Exclude<
 >[string];
 
 /**
- * An object containing all valid TemplateSection values.
+ * An array containing all valid TemplateSection values.
  */
-export const TemplateSection: { [K in TemplateSection]: K } = {
-  Conditions: "Conditions",
-  Mappings: "Mappings",
-  Metadata: "Metadata",
-  Outputs: "Outputs",
-  Parameters: "Parameters",
-  Resources: "Resources",
-  Rules: "Rules",
-};
+export const TemplateSection = Object.keys({
+  // trick to make sure we have all the values
+  Conditions: true,
+  Mappings: true,
+  Metadata: true,
+  Outputs: true,
+  Parameters: true,
+  Resources: true,
+  Rules: true,
+} satisfies Record<TemplateSection, any>) as TemplateSection[];
 
 /**
  * A key-value map.
@@ -447,7 +451,7 @@ export type ResourceOptions = {
  */
 export type ResourceDefinition<
   Type extends string = string,
-  Props extends object = Record<string, unknown>,
+  Props extends object = any,
 > = ResourceOptions & {
   /**
    * Resource properties are additional options that you can specify for a
@@ -455,7 +459,7 @@ export type ResourceDefinition<
    *
    * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html}
    */
-  Properties: Props;
+  Properties: WithIntrinsics<Props>;
 
   /**
    * The resource type identifies the type of resource that you are declaring.
@@ -1024,4 +1028,28 @@ export type UpdatePolicy = {
    * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatepolicy.html#cfn-attributes-updatepolicy-useonlineresharding}
    */
   UseOnlineResharding?: boolean | ValueFn<boolean> | undefined;
+};
+
+/**
+ * A key-value pair to associate with a resource.
+ */
+export type Tag = {
+  /**
+   * The key name of the tag. You can specify a value that is 1 to 128 Unicode
+   * characters in length and cannot be prefixed with `aws:`. You can use any of
+   * the following characters: the set of Unicode letters, digits, whitespace,
+   * _, ., /, =, +, and -.
+   * @minLength 1
+   * @maxLength 128
+   */
+  Key: string;
+  /**
+   * The value for the tag. You can specify a value that is 0 to 256 Unicode
+   * characters in length and cannot be prefixed with `aws:`. You can use any of
+   * the following characters: the set of Unicode letters, digits, whitespace,
+   * _, ., /, =, +, and -.
+   * @minLength 1
+   * @maxLength 256
+   */
+  Value: string;
 };

@@ -1,8 +1,8 @@
-name: Release
+name: Schema update
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch:
+  schedule:
+    - cron: "0 1 * * 1"
 
 permissions:
   attestations: write
@@ -28,22 +28,34 @@ jobs:
           cache: "npm"
           registry-url: "https://registry.npmjs.org"
 
-      - name: NPM install
-        run: npm ci
-
-      - name: Generate resource types
-        run: npm generate
-
-      - name: Build
-        run: npm run build
-
       - name: Configure Git
         shell: bash
         run: |
           git config user.name "${{ github.actor }}"
           git config user.email "${{ github.actor_id }}+${{ github.actor }}@users.noreply.github.com"
 
+      - name: NPM install
+        run: npm ci
+
+      - name: Update schemas
+        run: npm update @propulsionworks/cfn-resource-schemas
+
+      - id: commit
+        name: Commit changes
+        continue-on-error: true
+        run: |
+          git add -A && git commit -m 'Chore: update resource schemas'
+
+      - name: Generate resource types
+        if: ${{ steps.commit.outcome == 'success' }}
+        run: npm generate
+
+      - name: Build
+        if: ${{ steps.commit.outcome == 'success' }}
+        run: npm run build
+
       - name: Release
+        if: ${{ steps.commit.outcome == 'success' }}
         run: npm run release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

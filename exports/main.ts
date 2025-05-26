@@ -1,3 +1,4 @@
+export * from "../lib/builder.ts";
 export * from "../lib/intrinsics.ts";
 export * from "../lib/json.ts";
 export * from "../lib/parameters.ts";

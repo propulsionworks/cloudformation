@@ -13,15 +13,12 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: "22.x"
+          node-version-file: .node-version
           cache: "npm"
           registry-url: "https://registry.npmjs.org"
 
       - name: NPM install
         run: npm ci
-
-      - name: Test
-        run: npm run test
 
       - name: TypeScript
         run: npm run check
