@@ -88,9 +88,14 @@ export type ValueFn<Value = unknown> =
 /**
  * Convert a value to accept intrinsic functions.
  */
-export type WithIntrinsics<Value> = [Value] extends [object]
-  ? Value | { [K in keyof Value]: WithIntrinsics<Value[K]> }
-  : Value | ValueFn<Value>;
+// use [Value] extends [JsonPrimitive]: don't distribute on unions or it gets unwieldy
+export type WithIntrinsics<Value> = [Value] extends [JsonPrimitive]
+  ? Value | ValueFn<Value>
+  : Value extends readonly JsonPrimitive[]
+    ? Value | ValueFn<Value>
+    : Value extends object
+      ? { [K in keyof Value]: WithIntrinsics<Value[K]> }
+      : Value;
 
 /**
  * Condition functions for use in Rule conditions or assertions.
