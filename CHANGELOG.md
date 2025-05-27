@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.2](https://github.com/propulsionworks/cloudformation/compare/0.1.1...0.1.2) (2025-05-27)
+
+
+### Fix
+
+* WithIntrinsics type ([734b3e3](https://github.com/propulsionworks/cloudformation/commit/734b3e347916c4ee176dbbe3e32fbe411d4bc5c7))
+
 ## [0.1.1](https://github.com/propulsionworks/cloudformation/compare/0.1.0...0.1.1) (2025-05-26)
 
 
