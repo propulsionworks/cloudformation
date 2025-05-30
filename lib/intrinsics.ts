@@ -410,22 +410,24 @@ export type FnJoinListItemValue =
   | FnGetAtt<string>
   | FnIf<string>
   | FnImportValue<string>
+  | FnJoin
   | FnSelect<string>
+  | FnSub
   | Ref<string>;
 
 /**
  * Allowed functions in the `listOfValues` parameter in {@link FnJoin}.
  */
 export type FnJoinListValue =
-  | FnGetAZs
   | FnFindInMap<string[]>
   | FnGetAtt<string[]>
+  | FnGetAZs
   | FnIf<string[]>
   | FnImportValue<string[]>
+  | FnJoinListItemValue[]
   | FnSelect<string[]>
   | FnSplit
-  | Ref<string[]>
-  | FnJoinListItemValue[];
+  | Ref<string[]>;
 
 /**
  * Returns true for a condition that evaluates to false or returns false for a
