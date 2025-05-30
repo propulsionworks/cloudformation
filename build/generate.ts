@@ -38,7 +38,7 @@ export async function main(argv: string[]): Promise<number> {
     "iam-policy": {
       type: "import",
       moduleName: "../main.ts",
-      name: "TemplatePolicyDocument",
+      name: "PolicyDocument",
       typeOnly: true,
     },
   };
