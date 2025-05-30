@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.5](https://github.com/propulsionworks/cloudformation/compare/0.1.4...0.1.5) (2025-05-30)
+
+
+### Fix
+
+* policy documents contain double intrinsics ([b3b9824](https://github.com/propulsionworks/cloudformation/commit/b3b982480682a30a85816e768f7fe7f9fef35b4f))
+
 ## [0.1.4](https://github.com/propulsionworks/cloudformation/compare/0.1.3...0.1.4) (2025-05-30)
 
 
