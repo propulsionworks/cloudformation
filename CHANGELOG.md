@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.4](https://github.com/propulsionworks/cloudformation/compare/0.1.3...0.1.4) (2025-05-30)
+
+
+### Fix
+
+* Fn::Join definition doesn't include all allowed functions ([54c800d](https://github.com/propulsionworks/cloudformation/commit/54c800da7c664c6c802ba05eb3277379fb3f07b5))
+
 ## [0.1.3](https://github.com/propulsionworks/cloudformation/compare/0.1.2...0.1.3) (2025-05-30)
 
 
