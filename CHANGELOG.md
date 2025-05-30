@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.6](https://github.com/propulsionworks/cloudformation/compare/0.1.5...0.1.6) (2025-05-30)
+
+
+### Fix
+
+* resource.ref returns unknown type ([e19e108](https://github.com/propulsionworks/cloudformation/commit/e19e1089ae1d018bfd76c642e7168d8254de0d0a))
+
 ## [0.1.5](https://github.com/propulsionworks/cloudformation/compare/0.1.4...0.1.5) (2025-05-30)
 
 
