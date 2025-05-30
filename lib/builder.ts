@@ -106,14 +106,14 @@ export type ResourceInstance<Def> =
   Def extends ResourceDefinitionWithAttributes<any, any, infer Attributes>
     ? {
         name: string;
-        ref: Ref;
+        ref: <T = string>() => Ref<T>;
         getAtt: <Attr extends keyof Attributes>(
           name: Attr,
         ) => Required<FnGetAtt<Attributes[Attr]>>;
       }
     : {
         name: string;
-        ref: Ref;
+        ref: <T = string>() => Ref<T>;
       };
 
 /**
@@ -293,7 +293,7 @@ export class TemplateBuilder<
     });
     return {
       name,
-      ref: Ref(name),
+      ref: () => Ref(name),
       getAtt: Fn.GetAtt.bind(Fn, name),
     } as ResourceInstance<Extract<ResourceType, { Type: T }>>;
   }
