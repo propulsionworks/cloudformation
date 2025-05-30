@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.3](https://github.com/propulsionworks/cloudformation/compare/0.1.2...0.1.3) (2025-05-30)
+
+
+### Fix
+
+* WithIntrinsics doesn't support mixed arrays ([04cb558](https://github.com/propulsionworks/cloudformation/commit/04cb55875411ad19423307d1156b346c63cad512))
+
 ## [0.1.2](https://github.com/propulsionworks/cloudformation/compare/0.1.1...0.1.2) (2025-05-27)
 
 
