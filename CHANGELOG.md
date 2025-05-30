@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.7](https://github.com/propulsionworks/cloudformation/compare/0.1.6...0.1.7) (2025-05-30)
+
+
+### Fix
+
+* WithIntrinsics breaks on optional properties ([ef379fd](https://github.com/propulsionworks/cloudformation/commit/ef379fdedd21c6c2d775bb66a6a92463750c49d3))
+
 ## [0.1.6](https://github.com/propulsionworks/cloudformation/compare/0.1.5...0.1.6) (2025-05-30)
 
 
