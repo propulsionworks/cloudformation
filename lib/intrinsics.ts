@@ -89,8 +89,8 @@ export type ValueFn<Value = unknown> =
  * Convert a value to accept intrinsic functions.
  */
 // use [Value] extends [JsonPrimitive]: don't distribute on unions or it gets unwieldy
-export type WithIntrinsics<Value> = [Value] extends [JsonPrimitive]
-  ? Value | ValueFn<Value>
+export type WithIntrinsics<Value> = [Value] extends [JsonPrimitive | undefined]
+  ? Value | ValueFn<Exclude<Value, undefined>>
   : Value extends readonly (infer Element extends JsonPrimitive)[]
     ? Value | ValueFn<Value> | (Element | ValueFn<Element>)[]
     : Value extends object
