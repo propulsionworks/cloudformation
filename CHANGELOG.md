@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.8](https://github.com/propulsionworks/cloudformation/compare/0.1.7...0.1.8) (2025-05-31)
+
+
+### Fix
+
+* template Resources type includes undefined ([2b50309](https://github.com/propulsionworks/cloudformation/commit/2b503093480a45ae6d2adfeb00e75c339d655fc7))
+
 ## [0.1.7](https://github.com/propulsionworks/cloudformation/compare/0.1.6...0.1.7) (2025-05-30)
 
 
