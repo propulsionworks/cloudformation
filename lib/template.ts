@@ -116,7 +116,7 @@ export type Template<
    *
    * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resources-section-structure.html}
    */
-  Resources: TemplateMap<ResourceType> | undefined;
+  Resources: TemplateMap<ResourceType>;
 
   /**
    * The optional `Rules` section validates a parameter or a combination of

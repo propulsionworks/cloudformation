@@ -128,8 +128,8 @@ export class TemplateBuilder<
     return this.#template;
   }
 
-  public constructor(template: Template) {
-    this.#template = template;
+  public constructor(template?: Template) {
+    this.#template = template ?? { Resources: {} };
   }
 
   /**
