@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.10](https://github.com/propulsionworks/cloudformation/compare/0.1.9...0.1.10) (2025-06-08)
+
+
+### Fix
+
+* FnSelect doesnt allow FnSplit as child ([8904da7](https://github.com/propulsionworks/cloudformation/commit/8904da775da7908072bc80757d8d3aec8764bb2d))
+
 ## [0.1.9](https://github.com/propulsionworks/cloudformation/compare/0.1.8...0.1.9) (2025-06-02)
 
 
