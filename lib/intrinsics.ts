@@ -516,7 +516,7 @@ export type FnSelect<Value> = {
     index: number | Ref<number> | FnFindInMap<number>,
     listOfObjects:
       | Value[]
-      | (Value extends string[] ? FnGetAZs | FnSplit : never)
+      | (Value extends string ? FnGetAZs | FnSplit : never)
       | FnFindInMap<Value[]>
       | FnGetAtt<Value[]>
       | Ref<Value[]>,
