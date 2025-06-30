@@ -65,7 +65,7 @@ export type ResourceDefinitionWithAttributes<
  */
 export type ConditionInstance = {
   name: string;
-  ref: FnCondition;
+  ref: () => FnCondition;
 };
 
 /**
@@ -89,14 +89,14 @@ export type MappingInstance<
 export type ParameterInstance<T extends ParameterType> = T extends FnValueOfType
   ? {
       name: string;
-      ref: Ref<ParameterTypeMap[T]>;
+      ref: () => Ref<ParameterTypeMap[T]>;
       valueOf: <Attr extends keyof FnValueOfTypeMap[T]>(
         attribute: Attr,
       ) => Required<FnValueOf<FnValueOfTypeMap[T][Attr]>>;
     }
   : {
       name: string;
-      ref: Ref<ParameterTypeMap[T]>;
+      ref: () => Ref<ParameterTypeMap[T]>;
     };
 
 /**
@@ -151,7 +151,7 @@ export class TemplateBuilder<
     this.#addSection("Conditions", name, definition);
     return {
       name,
-      ref: Condition(name),
+      ref: () => Condition(name),
     };
   }
 
@@ -268,7 +268,7 @@ export class TemplateBuilder<
     this.#addSection("Parameters", name, definition);
     return {
       name,
-      ref: Ref(name),
+      ref: () => Ref(name),
       valueOf: Fn.ValueOf.bind(Fn, name),
     } as ParameterInstance<T>;
   }
