@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.15](https://github.com/propulsionworks/cloudformation/compare/0.1.14...0.1.15) (2025-06-30)
+
+
+### Fix
+
+* make all instance `ref` properties functions ([a85c0b0](https://github.com/propulsionworks/cloudformation/commit/a85c0b0cf5caaf96f5904d2299cc3fd5aaffc75d))
+
 ## [0.1.14](https://github.com/propulsionworks/cloudformation/compare/0.1.13...0.1.14) (2025-06-30)
 
 
