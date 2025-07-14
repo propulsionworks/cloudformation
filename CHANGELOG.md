@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.17](https://github.com/propulsionworks/cloudformation/compare/0.1.16...0.1.17) (2025-07-14)
+
+
+### Chore
+
+* update resource schemas ([5cffd82](https://github.com/propulsionworks/cloudformation/commit/5cffd824bfb9892524812c8f11760366a13651c1))
+
 ## [0.1.16](https://github.com/propulsionworks/cloudformation/compare/0.1.15...0.1.16) (2025-07-07)
 
 
